@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+  <meta name="description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#操作Excel基本常规语句">
 <meta property="og:url" content="http://yoursite.com/posts/4ac4d4ca.html">
 <meta property="og:site_name" content="Tony Blog">
-<meta property="og:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+<meta property="og:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2013-01-13T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#操作Excel基本常规语句">
-<meta name="twitter:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+<meta name="twitter:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
 
 
 
@@ -365,10 +365,11 @@
 
       
         <p>引用Microsoft.Office.Interop.Excel.dll文件</p>
-<h1 id="添加using"><a href="#添加using" class="headerlink" title="添加using"></a>添加using</h1><p>//添加using<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Office.Interop.Excel;</span><br><span class="line"><span class="keyword">using</span> Excel=Microsoft.Office.Interop.Excel;</span><br></pre></td></tr></table></figure></p>
+<p>添加using<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Office.Interop.Excel;</span><br><span class="line"><span class="keyword">using</span> Excel=Microsoft.Office.Interop.Excel;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>设置程序运行语言</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;</span><br><span class="line">System.Threading.Thread.CurrentThread.CurrentCulture = <span class="keyword">new</span> System.Globalization.CultureInfo(<span class="string">"en-US"</span>);</span><br></pre></td></tr></table></figure>
+<p>创建并使用Application</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Application</span></span><br><span class="line">Excel.Application xlApp = <span class="keyword">new</span> Excel.Application();</span><br><span class="line"><span class="comment">//设置是否显示警告窗体</span></span><br><span class="line">excelApp.DisplayAlerts = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//设置是否显示Excel</span></span><br><span class="line">excelApp.Visible = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//禁止刷新屏幕</span></span><br><span class="line">excelApp.ScreenUpdating = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//根据路径path打开</span></span><br><span class="line">Excel.Workbook xlsWorkBook = excelApp.Workbooks.Open(path, System.Type.Missing, System.Type.Missing, System.Type.Missing,</span><br><span class="line">System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing,</span><br><span class="line">System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing);</span><br><span class="line"><span class="comment">//获取Worksheet对象</span></span><br><span class="line">Excel.Worksheet xlsWorkSheet = (Worksheet)xlsWorkBook.Worksheets[<span class="string">"sales plan"</span>];</span><br></pre></td></tr></table></figure>
 <p>获取最后一行、一列的两种方法</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取已用的范围数据</span></span><br><span class="line"><span class="keyword">int</span> rowsCount = xlsWorkSheet.UsedRange.Rows.Count;</span><br><span class="line"><span class="keyword">int</span> colsCount = xlsWorkSheet.UsedRange.Columns.Count;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rowsCount = xlsWorkSheet.get_Range(<span class="string">"A65536"</span>, <span class="string">"A65536"</span>).get_End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row;</span><br><span class="line"><span class="keyword">int</span> colsCount = xlsWorkSheet.get_Range(<span class="string">"ZZ1"</span>, <span class="string">"ZZ1"</span>).get_End(Microsoft.Office.Interop.Excel.XlDirection.xlToLeft).Column;</span><br></pre></td></tr></table></figure>
@@ -488,17 +489,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -519,19 +511,6 @@
                 </div>
               
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">0</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
               
 
               
@@ -556,22 +535,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加using"><span class="nav-number">1.</span> <span class="nav-text">添加using</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
