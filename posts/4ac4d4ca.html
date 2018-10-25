@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#操作Excel基本常规语句">
+<meta property="og:url" content="http://yoursite.com/posts/4ac4d4ca.html">
+<meta property="og:site_name" content="Tony Blog">
+<meta property="og:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2013-01-13T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#操作Excel基本常规语句">
+<meta name="twitter:description" content="引用Microsoft.Office.Interop.Excel.dll文件 添加using//添加using12using Microsoft.Office.Interop.Excel;using Excel=Microsoft.Office.Interop.Excel;">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts/4ac4d4ca.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C#操作Excel基本常规语句 | Tony Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tony Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">基于信仰 基于代码 基于自己</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/4ac4d4ca.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="为所当为 顺其自然">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tony Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C#操作Excel基本常规语句
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-01-14 16:05:40 / 修改时间：00:00:00" itemprop="dateCreated datePublished" datetime="2013-01-14T16:05:40+08:00">2013-01-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>引用Microsoft.Office.Interop.Excel.dll文件</p>
+<h1 id="添加using"><a href="#添加using" class="headerlink" title="添加using"></a>添加using</h1><p>//添加using<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Office.Interop.Excel;</span><br><span class="line"><span class="keyword">using</span> Excel=Microsoft.Office.Interop.Excel;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>设置程序运行语言</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Globalization.CultureInfo CurrentCI = System.Threading.Thread.CurrentThread.CurrentCulture;</span><br><span class="line">System.Threading.Thread.CurrentThread.CurrentCulture = <span class="keyword">new</span> System.Globalization.CultureInfo(<span class="string">"en-US"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Application</span></span><br><span class="line">Excel.Application xlApp = <span class="keyword">new</span> Excel.Application();</span><br><span class="line"><span class="comment">//设置是否显示警告窗体</span></span><br><span class="line">excelApp.DisplayAlerts = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//设置是否显示Excel</span></span><br><span class="line">excelApp.Visible = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//禁止刷新屏幕</span></span><br><span class="line">excelApp.ScreenUpdating = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//根据路径path打开</span></span><br><span class="line">Excel.Workbook xlsWorkBook = excelApp.Workbooks.Open(path, System.Type.Missing, System.Type.Missing, System.Type.Missing,</span><br><span class="line">System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing,</span><br><span class="line">System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing);</span><br><span class="line"><span class="comment">//获取Worksheet对象</span></span><br><span class="line">Excel.Worksheet xlsWorkSheet = (Worksheet)xlsWorkBook.Worksheets[<span class="string">"sales plan"</span>];</span><br></pre></td></tr></table></figure>
+<p>获取最后一行、一列的两种方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取已用的范围数据</span></span><br><span class="line"><span class="keyword">int</span> rowsCount = xlsWorkSheet.UsedRange.Rows.Count;</span><br><span class="line"><span class="keyword">int</span> colsCount = xlsWorkSheet.UsedRange.Columns.Count;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rowsCount = xlsWorkSheet.get_Range(<span class="string">"A65536"</span>, <span class="string">"A65536"</span>).get_End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row;</span><br><span class="line"><span class="keyword">int</span> colsCount = xlsWorkSheet.get_Range(<span class="string">"ZZ1"</span>, <span class="string">"ZZ1"</span>).get_End(Microsoft.Office.Interop.Excel.XlDirection.xlToLeft).Column;</span><br></pre></td></tr></table></figure>
+<p>将Excel数据存入二维数组</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rowsCount：最大行    colsCount：最大列</span></span><br><span class="line">Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlsWorkSheet.Cells[<span class="number">1</span>, <span class="number">1</span>];</span><br><span class="line">Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlsWorkSheet.Cells[rowsCount, colsCount];</span><br><span class="line">Range rng = (Microsoft.Office.Interop.Excel.Range)xlsWorkSheet.get_Range(c1, c2);</span><br><span class="line"><span class="keyword">object</span>[,] exceldata = (<span class="keyword">object</span>[,])rng.get_Value(Microsoft.Office.Interop.Excel.XlRangeValueDataType.xlRangeValueDefault);</span><br></pre></td></tr></table></figure>
+<p>在第一列的左边插入一列</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Excel.Range xlsColumns = (Excel.Range)xlsWorkSheet.Columns[<span class="number">1</span>, System.Type.Missing];</span><br><span class="line">xlsColumns.Insert(XlInsertShiftDirection.xlShiftToRight, Type.Missing);</span><br><span class="line"><span class="comment">//xlsSheetTemplateMajor_Meisai.Cells.get_Range(xlsSheetTemplateMajor_Meisai.Cells[1, 1], xlsSheetTemplateMajor_Meisai.Cells[65535, 1]).Insert(Type.Missing, Type.Missing);</span></span><br><span class="line"> Excel.Range rng;</span><br><span class="line">            rng = worksheet.get_Range(<span class="string">"A:A"</span>, <span class="string">"A:A"</span>);</span><br><span class="line">            rng.Insert(Excel.XlDirection.xlToRight, Excel.XlInsertFormatOrigin.xlFormatFromLeftOrAbove);</span><br></pre></td></tr></table></figure>
+<p>删除行</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Range deleteRng = (Range)xlsWorkSheetSapExcel.Rows[<span class="number">2</span>, System.Type.Missing];</span><br><span class="line">deleteRng.Delete(Excel.XlDeleteShiftDirection.xlShiftUp);</span><br></pre></td></tr></table></figure>
+<p>删除一列数据</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">((Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[<span class="number">1</span>, <span class="number">11</span>]).Select();</span><br><span class="line">((Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[<span class="number">1</span>, <span class="number">11</span>]).EntireColumn.Delete(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>设置背景色为红色</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlsWorkSheet.get_Range(<span class="string">"A1"</span>, <span class="string">"A1"</span>).Interior.ColorIndex = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p>设置Format属性    属性值可以通过在vba中录宏得到</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Microsoft.Office.Interop.Excel.Range range1 = xlsWorkSheetAdd.get_Range(<span class="string">"J1"</span>, <span class="string">"J65535"</span>);</span><br><span class="line">range1.NumberFormat = <span class="string">"@"</span>;<span class="comment">//文本格式</span></span><br><span class="line">range1 = xlsWorkSheetAdd.get_Range(<span class="string">"L1"</span>, <span class="string">"L65535"</span>);</span><br><span class="line">range1.NumberFormat = <span class="string">"0.00"</span>;<span class="comment">//保留两位小数</span></span><br></pre></td></tr></table></figure>
+<p>替换</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Range Drng = xlsWorkSheetTemplate.get_Range(<span class="string">"D1"</span>, <span class="string">"D65535"</span>);</span><br><span class="line">Drng.Replace(<span class="string">" "</span>, <span class="string">""</span>, XlLookAt.xlPart, XlSearchOrder.xlByColumns, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing);</span><br><span class="line">Drng.TextToColumns(Drng, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierSingleQuote, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing);</span><br></pre></td></tr></table></figure>
+<p>分列处理 设置为文本</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Range TextToColumnRng = xlsWorkSheet.get_Range(<span class="string">"E1"</span>, <span class="string">"E65535"</span>);</span><br><span class="line">xlsWorkSheet.get_Range(<span class="string">"E1"</span>, <span class="string">"E65535"</span>).TextToColumns(TextToColumnRng, Excel.XlTextParsingType.xlDelimited, Excel.XlTextQualifier.xlTextQualifierSingleQuote, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing, System.Type.Missing);</span><br></pre></td></tr></table></figure>
+<p>设置公式</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rng = xlMergeFileWorkSheet.get_Range(<span class="string">"D2"</span>, <span class="string">"D"</span> + rowcount);<span class="comment">//设置列范围</span></span><br><span class="line">rng.Formula = <span class="string">@"=IF(RC[-3]=""H"",""Survivor"",""Donor"")"</span>;<span class="comment">//设置公式   @的问题</span></span><br><span class="line"><span class="comment">//rng.NumberFormat = "$0.00";//设置格式</span></span><br><span class="line">copyRng = xlsSheetTemplateMajor_Meisai.get_Range(<span class="string">"N3"</span>, <span class="string">"N"</span> + lastRowTemplate);</span><br><span class="line">copyRng.Formula = <span class="string">"=VLOOKUP(RC[-12],AR残!C[-13]:C[-11],2,0)"</span>;</span><br></pre></td></tr></table></figure>
+<p>筛选</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//确定筛选范围</span></span><br><span class="line">D1_rng = D1_TemSheet.Cells.get_Range(D1_TemSheet.Cells[<span class="number">1</span>, <span class="number">1</span>], D1_TemSheet.Cells[<span class="number">1</span>, <span class="number">50</span>]);</span><br><span class="line"><span class="comment">//执行筛选动作</span></span><br><span class="line">rng.AutoFilter(<span class="number">5</span>, <span class="string">"S"</span>, Microsoft.Office.Interop.Excel.XlAutoFilterOperator.xlFilterValues, Type.Missing, <span class="literal">true</span>);</span><br><span class="line">rng.AutoFilter(<span class="number">6</span>, <span class="string">"H"</span>, Microsoft.Office.Interop.Excel.XlAutoFilterOperator.xlOr, <span class="string">"F"</span>, <span class="literal">true</span>);</span><br><span class="line">D1_rng.AutoFilter(D1_Column + <span class="number">2</span>, <span class="string">"#N/A"</span>, Microsoft.Office.Interop.Excel.XlAutoFilterOperator.xlFilterValues,<span class="string">"#N/A"</span>,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>复制粘贴</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D2_rng.Copy(Type.Missing);</span><br><span class="line">D2_TemSheet.Cells.get_Range(D2_TemSheet.Cells[<span class="number">2</span>, (D2_Column + <span class="number">1</span>)], D2_TemSheet.Cells[<span class="number">2</span>, (D2_Column + <span class="number">1</span>)]).PasteSpecial(Excel.XlPasteType.xlPasteValues, Excel.XlPasteSpecialOperation.xlPasteSpecialOperationNone, <span class="literal">false</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>Find查找</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rng = mySheet.get_Range(<span class="string">"A1"</span>, <span class="string">"IV10"</span>).Find(arrLabel[j], Type.Missing,</span><br><span class="line">                        Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, Microsoft.Office.Interop.Excel.XlLookAt.xlWhole,</span><br><span class="line">                        Microsoft.Office.Interop.Excel.XlSearchOrder.xlByRows,</span><br><span class="line">                        Microsoft.Office.Interop.Excel.XlSearchDirection.xlNext, <span class="literal">false</span>, Type.Missing, Type.Missing);</span><br></pre></td></tr></table></figure>
+<p>文字占满单元格</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range.EntireColumn.AutoFit();</span><br></pre></td></tr></table></figure>
+<p>另存</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlsWorkBook.SaveAs(FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);</span><br></pre></td></tr></table></figure>
+<p>关闭对象</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.Runtime.InteropServices.Marshal.ReleaseComObject(xlsWorkSheet);</span><br><span class="line">System.Runtime.InteropServices.Marshal.ReleaseComObject(xlsWorkBook);</span><br><span class="line">excelApp.Quit();</span><br><span class="line">Kill(excelApp);<span class="comment">//调用方法关闭进程</span></span><br><span class="line">GC.Collect();</span><br></pre></td></tr></table></figure>
+<p>关闭Excel进程</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 关闭Excel进程</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">KeyMyExcelProcess</span></span><br><span class="line">&#123;</span><br><span class="line"> [<span class="meta">DllImport(<span class="meta-string">"User32.dll"</span>, CharSet = CharSet.Auto)</span>]</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">GetWindowThreadProcessId</span>(<span class="params">IntPtr hwnd, <span class="keyword">out</span> <span class="keyword">int</span> ID</span>)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Kill</span>(<span class="params">Microsoft.Office.Interop.Excel.Application excel</span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">try</span></span><br><span class="line">     &#123;</span><br><span class="line">         IntPtr t = <span class="keyword">new</span> IntPtr(excel.Hwnd);   <span class="comment">//得到这个句柄，具体作用是得到这块内存入口 </span></span><br><span class="line">         <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">         GetWindowThreadProcessId(t, <span class="keyword">out</span> k);   <span class="comment">//得到本进程唯一标志k</span></span><br><span class="line">         System.Diagnostics.Process p = System.Diagnostics.Process.GetProcessById(k);   <span class="comment">//得到对进程k的引用</span></span><br><span class="line">         p.Kill();     <span class="comment">//关闭进程k</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">catch</span> (System.Exception ex)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">throw</span> ex;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭打开的Excel方法</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CloseExcel</span>(<span class="params">Microsoft.Office.Interop.Excel.Application ExcelApplication, Microsoft.Office.Interop.Excel.Workbook ExcelWorkbook</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   ExcelWorkbook.Close(<span class="literal">false</span>, Type.Missing, Type.Missing);</span><br><span class="line">   ExcelWorkbook = <span class="literal">null</span>;</span><br><span class="line">   ExcelApplication.Quit();</span><br><span class="line">   GC.Collect();</span><br><span class="line">   KeyMyExcelProcess.Kill(ExcelApplication);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/a1751c09.html" rel="next" title="Hello Hexo">
+                <i class="fa fa-chevron-left"></i> Hello Hexo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/fa0f40d2.html" rel="prev" title="安装MySql-阿里云linux服务器">
+                安装MySql-阿里云linux服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Tony</p>
+              <p class="site-description motion-element" itemprop="description">为所当为 顺其自然</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">0</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加using"><span class="nav-number">1.</span> <span class="nav-text">添加using</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
