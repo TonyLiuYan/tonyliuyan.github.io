@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="打开下面的地址，复制对应版本.rpm文件的地址 https://dev.mysql.com/downloads/repo/yum/ 通过wget下载.rpm文件">
+  <meta name="description" content="下载官网地址：https://jenkins.io/ 下载地址：https://jenkins.io/download/ 安装向导地址： https://pkg.jenkins.io/redhat-stable/ https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装MySql-阿里云linux服务器">
-<meta property="og:url" content="http://yoursite.com/posts/fa0f40d2.html">
+<meta property="og:title" content="linux centos7 安装Jenkins">
+<meta property="og:url" content="http://yoursite.com/posts/e0a8d56e.html">
 <meta property="og:site_name" content="Tony Blog">
-<meta property="og:description" content="打开下面的地址，复制对应版本.rpm文件的地址 https://dev.mysql.com/downloads/repo/yum/ 通过wget下载.rpm文件">
+<meta property="og:description" content="下载官网地址：https://jenkins.io/ 下载地址：https://jenkins.io/download/ 安装向导地址： https://pkg.jenkins.io/redhat-stable/ https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-05T16:00:00.000Z">
+<meta property="og:updated_time" content="2018-11-18T03:07:02.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装MySql-阿里云linux服务器">
-<meta name="twitter:description" content="打开下面的地址，复制对应版本.rpm文件的地址 https://dev.mysql.com/downloads/repo/yum/ 通过wget下载.rpm文件">
+<meta name="twitter:title" content="linux centos7 安装Jenkins">
+<meta name="twitter:description" content="下载官网地址：https://jenkins.io/ 下载地址：https://jenkins.io/download/ 安装向导地址： https://pkg.jenkins.io/redhat-stable/ https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/fa0f40d2.html">
+  <link rel="canonical" href="http://yoursite.com/posts/e0a8d56e.html">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>安装MySql-阿里云linux服务器 | Tony Blog</title>
+  <title>linux centos7 安装Jenkins | Tony Blog</title>
   
 
 
@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/fa0f40d2.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/e0a8d56e.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安装MySql-阿里云linux服务器
+          <h1 class="post-title" itemprop="name headline">linux centos7 安装Jenkins
               
             
           </h1>
@@ -326,12 +326,24 @@
                 
               
 
-              <time title="创建时间：2018-07-06 10:48:02 / 修改时间：00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-06T10:48:02+08:00">2018-07-06</time>
+              <time title="创建时间：2018-11-14 10:24:44" itemprop="dateCreated datePublished" datetime="2018-11-14T10:24:44+08:00">2018-11-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-18 11:07:02" itemprop="dateModified" datetime="2018-11-18T11:07:02+08:00">2018-11-18</time>
               
             
           </span>
@@ -364,40 +376,32 @@
       
 
       
-        <p>打开下面的地址，复制对应版本.rpm文件的地址</p>
-<p><a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a></p>
-<p>通过wget下载.rpm文件</p>
+        <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>官网地址：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a></p>
+<p>下载地址：<a href="https://jenkins.io/download/" target="_blank" rel="noopener">https://jenkins.io/download/</a></p>
+<p>安装向导地址：</p>
+<p><a href="https://pkg.jenkins.io/redhat-stable/" target="_blank" rel="noopener">https://pkg.jenkins.io/redhat-stable/</a></p>
+<p><a href="https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions" target="_blank" rel="noopener">https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions</a></p>
 <a id="more"></a>
-<p>将.rpm文件添加到yum仓库</p>
-<p><code>sudo rpm -Uvh mysql57-community-release-el6-n.noarch.rpm</code></p>
-<p>查看状态</p>
-<p><code>yum repolist all | grep mysql</code></p>
-<p>安装mysql</p>
-<p><code>sudo yum install mysql-community-server</code></p>
-<p>查看数据库状态</p>
-<p><code>sudo service mysqld status</code></p>
-<p>开启数据库</p>
-<p><code>sudo service mysqld start</code> 或 <code>sudo systemctl start mysqld.service</code></p>
-<p>关闭数据库</p>
-<p><code>sudo service mysqld stop</code></p>
-<p>查看安装后生成的默认密码</p>
-<p><code>sudo grep &#39;temporary password&#39; /var/log/mysqld.log</code></p>
-<p>通过查询到的密码，在服务器上使用root用户登录，并更改密码</p>
-<p><code>mysql -uroot -p</code></p>
-<p><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;MyNewPass4!&#39;;</code></p>
-<p>因为root用户默认是禁止远程连接的，创建一个新的用户</p>
-<p>创建用户admin并设置密码</p>
-<p><code>CREATE USER &#39;admin&#39;@&#39;%&#39; IDENTIFIED BY &#39;some_pass&#39;;</code></p>
-<p>给这个用户授予所有的远程访问的权限。这个用户主要用于管理整个数据库、备份、还原等操作。</p>
-<p><code>GRANT ALL ON *.* TO &#39;admin&#39;@&#39;%&#39;;</code></p>
-<p>使授权立即生效</p>
-<p><code>flush privileges;</code></p>
-<p>退出mysql环境</p>
-<p><code>exit</code></p>
-<p>设置防火墙，将端口号开启（注：如果是阿里云服务器开启端口需要在安全组里设置）</p>
-<p><code>firewall-cmd --permanent --zone=public --add-port=3306/tcp</code></p>
-<p><code>firewall-cmd --permanent --zone=public --add-port=3306/udp</code></p>
-<p><code>firewall-cmd --reload</code></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>通过yum进行安装</p>
+<h3 id="导入repository"><a href="#导入repository" class="headerlink" title="导入repository"></a>导入repository</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key</span><br></pre></td></tr></table></figure>
+<h3 id="进行安装"><a href="#进行安装" class="headerlink" title="进行安装"></a>进行安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install jenkins</span><br></pre></td></tr></table></figure>
+<h2 id="启动-停止服务"><a href="#启动-停止服务" class="headerlink" title="启动/停止服务"></a>启动/停止服务</h2><ul>
+<li><code>sudo service jenkins start/stop/restart</code></li>
+<li><code>sudo systemctl start/stop/restart jenkins</code></li>
+<li><code>sudo chkconfig jenkins on</code></li>
+</ul>
+<h2 id="解析安装包操作"><a href="#解析安装包操作" class="headerlink" title="解析安装包操作"></a>解析安装包操作</h2><ul>
+<li>安装之后，程序默认不启动，可以通过命令进行启动，但是会在开机的时候已守护进程的方式默认启动，进程管理地址：<code>/etc/init.d/jenkins</code></li>
+<li><code>jenkins</code>用户在服务启动的时候会被创建，可以通过配置文件进行变更，目录地址：<code>/var/log/jenkins</code>, <code>/var/lib/jenkins</code>, <code>/var/cache/jenkins</code></li>
+<li>日志文件目录地址：<code>/var/log/jenkins/jenkins.log</code></li>
+<li>jenkins的配置文件目录地址：<code>/etc/sysconfig/jenkins</code></li>
+<li><p>默认情况下jenkins使用8080端口</p>
+</li>
+<li><p>A Jenkins RPM repository is added in <code>/etc/yum.repos.d/jenkins.repo</code></p>
+</li>
+</ul>
+<h2 id="浏览器访问"><a href="#浏览器访问" class="headerlink" title="浏览器访问"></a>浏览器访问</h2><p>开通端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=8080/tcp</span><br><span class="line">firewall-cmd --permanent --zone=public --add-port=8080/udp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -425,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/b9fe29ac.html" rel="next" title="linux centos7 安装Java">
-                <i class="fa fa-chevron-left"></i> linux centos7 安装Java
+              <a href="/posts/fa0f40d2.html" rel="next" title="安装MySql-阿里云linux服务器">
+                <i class="fa fa-chevron-left"></i> 安装MySql-阿里云linux服务器
               </a>
             
           </div>
@@ -435,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/e0a8d56e.html" rel="prev" title="linux centos7 安装Jenkins">
-                linux centos7 安装Jenkins <i class="fa fa-chevron-right"></i>
+              <a href="/posts/adcd25c2.html" rel="prev" title="linux centos7 使用Jenkins部署React前端项目自动化">
+                linux centos7 使用Jenkins部署React前端项目自动化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -482,8 +486,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -528,6 +541,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入repository"><span class="nav-number">2.1.</span> <span class="nav-text">导入repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行安装"><span class="nav-number">2.2.</span> <span class="nav-text">进行安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-停止服务"><span class="nav-number">3.</span> <span class="nav-text">启动/停止服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析安装包操作"><span class="nav-number">4.</span> <span class="nav-text">解析安装包操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器访问"><span class="nav-number">5.</span> <span class="nav-text">浏览器访问</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
