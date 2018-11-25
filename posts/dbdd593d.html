@@ -108,24 +108,26 @@
 
 
 
-  <meta name="description" content="下载安装包使用rpm的安装方式进行安装 下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+  <meta name="description" content="invariant这是一个npm的包 npm package地址：https://www.npmjs.com/package/invariant invariant(condition, message) condition：true或false，一个表达式，也可以是空字符串表示false，非空的字符串表示true message：显示的消息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux centos7 安装Java">
-<meta property="og:url" content="http://yoursite.com/posts/b9fe29ac.html">
+<meta property="og:title" content="前端react中invariant包的简单使用说明">
+<meta property="og:url" content="http://yoursite.com/posts/dbdd593d.html">
 <meta property="og:site_name" content="Tony Blog">
-<meta property="og:description" content="下载安装包使用rpm的安装方式进行安装 下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+<meta property="og:description" content="invariant这是一个npm的包 npm package地址：https://www.npmjs.com/package/invariant invariant(condition, message) condition：true或false，一个表达式，也可以是空字符串表示false，非空的字符串表示true message：显示的消息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-04T16:00:00.000Z">
+<meta property="og:image" content="http://pihkvdgpx.bkt.clouddn.com/3.png">
+<meta property="og:updated_time" content="2018-11-25T02:07:24.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux centos7 安装Java">
-<meta name="twitter:description" content="下载安装包使用rpm的安装方式进行安装 下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+<meta name="twitter:title" content="前端react中invariant包的简单使用说明">
+<meta name="twitter:description" content="invariant这是一个npm的包 npm package地址：https://www.npmjs.com/package/invariant invariant(condition, message) condition：true或false，一个表达式，也可以是空字符串表示false，非空的字符串表示true message：显示的消息">
+<meta name="twitter:image" content="http://pihkvdgpx.bkt.clouddn.com/3.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/b9fe29ac.html">
+  <link rel="canonical" href="http://yoursite.com/posts/dbdd593d.html">
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>linux centos7 安装Java | Tony Blog</title>
+  <title>前端react中invariant包的简单使用说明 | Tony Blog</title>
   
 
 
@@ -284,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/b9fe29ac.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/dbdd593d.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony">
@@ -301,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux centos7 安装Java
+          <h1 class="post-title" itemprop="name headline">前端react中invariant包的简单使用说明
               
             
           </h1>
@@ -326,12 +328,24 @@
                 
               
 
-              <time title="创建时间：2018-04-05 10:35:22 / 修改时间：00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-05T10:35:22+08:00">2018-04-05</time>
+              <time title="创建时间：2018-11-21 18:39:39" itemprop="dateCreated datePublished" datetime="2018-11-21T18:39:39+08:00">2018-11-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-25 10:07:24" itemprop="dateModified" datetime="2018-11-25T10:07:24+08:00">2018-11-25</time>
               
             
           </span>
@@ -364,31 +378,29 @@
       
 
       
-        <h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><p>使用rpm的安装方式进行安装</p>
-<p>下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+        <h2 id="invariant"><a href="#invariant" class="headerlink" title="invariant"></a>invariant</h2><p>这是一个npm的包</p>
+<p>npm package地址：<a href="https://www.npmjs.com/package/invariant" target="_blank" rel="noopener">https://www.npmjs.com/package/invariant</a></p>
+<p><code>invariant(condition, message)</code></p>
+<p>condition：true或false，一个表达式，也可以是空字符串表示false，非空的字符串表示true</p>
+<p>message：显示的消息</p>
 <a id="more"></a>
-<p>这里是java8的下载地址</p>
-<p>下载对应版本的rpm包</p>
-<p>下载方式</p>
-<ul>
-<li>下载到本地，然后上传到linux上</li>
-<li>使用wget下载，复制下载地址，直接在linux上下载<ul>
-<li>如果使用wget没有安装，可使用yum进行安装，命令<code>yum install wget</code></li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> invariant = <span class="built_in">require</span>(<span class="string">'invariant'</span>);</span><br><span class="line"> </span><br><span class="line">invariant(someTruthyVal, <span class="string">'This will not throw'</span>);</span><br><span class="line"><span class="comment">// No errors</span></span><br><span class="line"> </span><br><span class="line">invariant(someFalseyVal, <span class="string">'This will throw an error with this message'</span>);</span><br><span class="line"><span class="comment">// Error: Invariant Violation: This will throw an error with this message</span></span><br></pre></td></tr></table></figure>
+<p>主要的作用类似一个照妖镜，对程序进行断言，在开发模式下将错误显示在浏览器上，生产模式下显示在console里。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ol>
+<li><p>使用`create-react-app’命令创建一个项目，名字随意起</p>
 </li>
-</ul>
-<p>截止到目前，我们下载的版本为<code>jdk-8u192-linux-x64.rpm</code></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>rpm -ivh jdk-8u192-linux-x64.rpm</code></p>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>配置之前，先查看java的安装目录 <code>/usr/java</code></p>
-<p>在这个目录下有个<code>jdk1.8.0_192-amd64</code>的文件夹，或类似的名字，java就安装在了这个里面，需要把这个文件夹配置到环境变量里面</p>
-<p><code>vim /etc/profile</code>  //打开环境变量文件</p>
-<p>在这个文件中的最后面添加如下设置</p>
-<p>进入insert模式(按字母i) 在最后面加上下面这段，然后按esc 然后保存退出(按 :wq回车)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_192-amd64</span><br><span class="line">CLASSPATH=%JAVA_HOME%/lib:%JAVA_HOME%/jre/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin</span><br><span class="line">export PATH CLASSPATH JAVA_HOME</span><br></pre></td></tr></table></figure>
-<p>重新载入配置文件：<code>source /etc/profile</code></p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>检查版本及验证：<code>java -version</code></p>
-<h3 id="rmp卸载jdk"><a href="#rmp卸载jdk" class="headerlink" title="rmp卸载jdk"></a>rmp卸载jdk</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep jdk   //查看版本</span><br><span class="line">rpm -e  jdk版本 //卸载</span><br></pre></td></tr></table></figure>
-<h2 id="直接安装OpenJdk"><a href="#直接安装OpenJdk" class="headerlink" title="直接安装OpenJdk"></a>直接安装OpenJdk</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java</span><br></pre></td></tr></table></figure>
+<li><p>引入<code>invariant</code>包，运行命令<code>npm install invariant --save</code></p>
+</li>
+<li><p>更改文件代码<code>src/index</code>,如下</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    import React from 'react';</span><br><span class="line">    import ReactDOM from 'react-dom';</span><br><span class="line">    import './index.css';</span><br><span class="line">    import App from './App';</span><br><span class="line">    import * as serviceWorker from './serviceWorker';</span><br><span class="line"><span class="addition">+ 	import invariant from 'invariant';</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+	let root = document.getElementById('root')</span></span><br><span class="line"><span class="addition">+	invariant(root, `Can't find root HTMLElement`);</span></span><br><span class="line"><span class="addition">+	ReactDOM.render(&lt;App /&gt;, root);</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-   ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</span></span><br><span class="line"></span><br><span class="line">    // If you want your app to work offline and load faster, you can change</span><br><span class="line">    // unregister() to register() below. Note this comes with some pitfalls.</span><br><span class="line">    // Learn more about service workers: http://bit.ly/CRA-PWA</span><br><span class="line">    serviceWorker.unregister();</span><br></pre></td></tr></table></figure>
+<p>安装上述更改代码后，程序可正常运行，目的是为了给<code>root</code>这个节点添加一个断言，当没有这个节点时，程序会报错提示</p>
+</li>
+<li><p>更改文件代码<code>src/index</code>,如下，让其出现错误</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    import React from 'react';</span><br><span class="line">    import ReactDOM from 'react-dom';</span><br><span class="line">    import './index.css';</span><br><span class="line">    import App from './App';</span><br><span class="line">    import * as serviceWorker from './serviceWorker';</span><br><span class="line"> 	import invariant from 'invariant';</span><br><span class="line"></span><br><span class="line"><span class="deletion">-	let root = document.getElementById('root')</span></span><br><span class="line">	let root = document.getElementById('root2')</span><br><span class="line">	invariant(root, `Can't find root HTMLElement`);</span><br><span class="line">	ReactDOM.render(&lt;App /&gt;, root);</span><br><span class="line"></span><br><span class="line">    // If you want your app to work offline and load faster, you can change</span><br><span class="line">    // unregister() to register() below. Note this comes with some pitfalls.</span><br><span class="line">    // Learn more about service workers: http://bit.ly/CRA-PWA</span><br><span class="line">    serviceWorker.unregister();</span><br></pre></td></tr></table></figure>
+<p>修改以上代码目的，对<code>root</code>进行断言，我们更改<code>root</code>的名字为<code>root2</code>，实际并没有这个节点，这时候运行程序在开发环境下，网页会显示出我们自定义的错误，同时console中也会显示，当为生产环境的时候，只在conso中显示，实际效果如下图：</p>
+<p><img src="http://pihkvdgpx.bkt.clouddn.com/3.png" alt=""></p>
+</li>
+</ol>
 
       
     </div>
@@ -416,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/94e7209a.html" rel="next" title="linux centos7 更改yum镜像">
-                <i class="fa fa-chevron-left"></i> linux centos7 更改yum镜像
+              <a href="/posts/adcd25c2.html" rel="next" title="linux centos7 使用Jenkins部署React前端项目自动化">
+                <i class="fa fa-chevron-left"></i> linux centos7 使用Jenkins部署React前端项目自动化
               </a>
             
           </div>
@@ -426,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/fa0f40d2.html" rel="prev" title="安装MySql-阿里云linux服务器">
-                安装MySql-阿里云linux服务器 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/503a4937.html" rel="prev" title="React中container和component的区别">
+                React中container和component的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装包"><span class="nav-number">1.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">3.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">4.</span> <span class="nav-text">验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rmp卸载jdk"><span class="nav-number">4.1.</span> <span class="nav-text">rmp卸载jdk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接安装OpenJdk"><span class="nav-number">5.</span> <span class="nav-text">直接安装OpenJdk</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#invariant"><span class="nav-number">1.</span> <span class="nav-text">invariant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li></ol></div>
             
 
           </div>
